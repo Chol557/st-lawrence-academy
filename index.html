@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Lawrence Academy - Official Community & Student Portal</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#8B0000',       // Crimson / Crest Red
+                            redHover: '#6D0000',
+                            redLight: '#FFF5F5',
+                            redBorder: '#FAD2D2',
+                            navy: '#0F172A',      // Crest Dark Blue
+                            navyLight: '#1E293B',
+                            gold: '#D4AF37',      // Crane Crest Gold
+                            goldHover: '#B89628',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-card {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px -10px rgba(139, 0, 0, 0.2);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #8B0000;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(15, 23, 42, 0.98) 100%);
+        }
+    </style>
+</head>
+<body class="h-full text-slate-800 dark:text-slate-100 antialiased flex flex-col font-sans bg-slate-50 dark:bg-slate-900 transition-colors duration-300">
+
+    <!-- Top Navigation Header -->
+    <header class="sticky top-0 z-40 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-brand-red/10 dark:border-slate-800 shadow-sm transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 gap-4">
+                
+                <!-- Logo & School Title -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="resetFilters()">
+                    <div class="relative w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 py-1">
+                        <!-- Precise Crest Logo with Flanking Cranes & Bottom Scroll -->
+                        <svg viewBox="0 0 500 450" class="w-full h-full drop-shadow-md">
+                            <!-- LEFT GREY CROWNED CRANE -->
+                            <g id="left-crane">
+                                <path d="M 120,160 C 90,140 40,150 10,180 C 35,220 70,250 110,260 C 90,290 60,320 20,350 C 70,360 110,320 135,280 C 130,250 125,200 120,160 Z" fill="#202020"/>
+                                <path d="M 105,180 C 80,170 45,185 20,210 C 45,235 75,255 105,260 C 85,280 60,305 35,325 C 75,330 105,300 122,270 Z" fill="#8B0000"/>
+                                <path d="M 90,195 C 70,190 40,210 25,230 C 45,245 70,255 95,258 C 80,270 65,285 45,300 C 75,300 95,280 110,255 Z" fill="#FFFFFF" opacity="0.9"/>
+                                <path d="M 110,260 C 120,280 135,290 150,290 C 140,260 130,220 125,180 C 120,140 130,110 145,80 C 135,90 125,110 120,130 C 110,170 105,220 110,260 Z" fill="#D0D5DD"/>
+                                <path d="M 125,180 C 120,140 130,110 145,80 C 140,82 135,95 130,115 C 120,150 115,190 120,220 Z" fill="#1D2939"/>
+                                <circle cx="147" cy="72" r="14" fill="#101828"/>
+                                <ellipse cx="149" cy="72" rx="7" ry="5" fill="#FFFFFF"/>
+                                <circle cx="145" cy="70" r="2.5" fill="#101828"/>
+                                <path d="M 148,82 Q 142,95 146,102 Q 152,95 150,82 Z" fill="#E53E3E"/>
+                                <path d="M 143,58 C 135,40 130,25 125,15 C 135,25 142,38 147,56 Z" fill="#F59E0B"/>
+                                <path d="M 147,57 C 145,38 142,20 140,10 C 147,22 150,38 150,57 Z" fill="#FBBF24"/>
+                                <path d="M 150,57 C 152,38 156,20 160,10 C 155,22 153,38 151,57 Z" fill="#D97706"/>
+                                <path d="M 158,68 L 175,72 L 157,76 Z" fill="#475569"/>
+                                <path d="M 135,285 L 125,350 L 140,390 M 125,350 L 110,385" stroke="#101828" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                            </g>
+
+                            <!-- RIGHT GREY CROWNED CRANE -->
+                            <g id="right-crane">
+                                <path d="M 380,160 C 410,140 460,150 490,180 C 465,220 430,250 390,260 C 410,290 440,320 480,350 C 430,360 390,320 365,280 C 370,250 375,200 380,160 Z" fill="#202020"/>
+                                <path d="M 395,180 C 420,170 455,185 480,210 C 455,235 425,255 395,260 C 415,280 440,305 465,325 C 425,330 395,300 378,270 Z" fill="#8B0000"/>
+                                <path d="M 410,195 C 430,190 460,210 475,230 C 455,245 430,255 405,258 C 420,270 435,285 455,300 C 425,300 405,280 390,255 Z" fill="#FFFFFF" opacity="0.9"/>
+                                <path d="M 390,260 C 380,280 365,290 350,290 C 360,260 370,220 375,180 C 380,140 370,110 355,80 C 365,90 375,110 380,130 C 390,170 395,220 390,260 Z" fill="#D0D5DD"/>
+                                <path d="M 375,180 C 380,140 370,110 355,80 C 360,82 365,95 370,115 C 380,150 385,190 380,220 Z" fill="#1D2939"/>
+                                <circle cx="353" cy="72" r="14" fill="#101828"/>
+                                <ellipse cx="351" cy="72" rx="7" ry="5" fill="#FFFFFF"/>
+                                <circle cx="355" cy="70" r="2.5" fill="#101828"/>
+                                <path d="M 352,82 Q 358,95 354,102 Q 348,95 350,82 Z" fill="#E53E3E"/>
+                                <path d="M 357,58 C 365,40 370,25 375,15 C 365,25 358,38 353,56 Z" fill="#F59E0B"/>
+                                <path d="M 353,57 C 355,38 358,20 360,10 C 353,22 350,38 350,57 Z" fill="#FBBF24"/>
+                                <path d="M 350,57 C 348,38 344,20 340,10 C 345,22 347,38 349,57 Z" fill="#D97706"/>
+                                <path d="M 342,68 L 325,72 L 343,76 Z" fill="#475569"/>
+                                <path d="M 365,285 L 375,350 L 360,390 M 375,350 L 390,385" stroke="#101828" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+                            </g>
+
+                            <!-- CENTER SHIELD -->
+                            <g id="main-shield">
+                                <path d="M 180,40 C 230,20 270,20 320,40 C 330,80 335,140 335,210 C 335,300 280,355 250,375 C 220,355 165,300 165,210 C 165,140 170,80 180,40 Z" fill="#1E293B"/>
+                                <path d="M 185,46 C 230,28 270,28 315,46 C 325,83 328,140 328,208 C 328,292 276,345 250,364 C 224,345 172,292 172,208 C 172,140 175,83 185,46 Z" fill="#8B0000"/>
+                                <path d="M 194,57 C 232,42 268,42 306,57 C 314,90 317,140 317,204 C 317,278 271,328 250,344 C 229,328 183,278 183,204 C 183,140 186,90 194,57 Z" fill="#FFFFFF"/>
+                                
+                                <text x="250" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="16" fill="#1E293B" text-anchor="middle" letter-spacing="1">ST.LAWRENCE</text>
+                                <text x="250" y="105" font-family="'Plus Jakarta Sans', sans-serif" font-weight="900" font-size="15" fill="#1E293B" text-anchor="middle" letter-spacing="1">ACADEMY</text>
+
+                                <g id="shield-book">
+                                    <path d="M 200,125 Q 250,140 250,230 Q 250,140 300,125 L 300,215 Q 250,225 250,245 Q 250,225 200,215 Z" fill="#1E293B"/>
+                                    <path d="M 204,130 Q 250,143 250,223 Q 250,143 296,130 L 296,210 Q 250,220 250,238 Q 250,220 204,210 Z" fill="#FFFFFF"/>
+                                    <line x1="250" y1="140" x2="250" y2="238" stroke="#1E293B" stroke-width="3"/>
+                                </g>
+
+                                <g id="crossed-keys" stroke="#1E293B" stroke-width="3.5" stroke-linecap="round" fill="none">
+                                    <line x1="225" y1="155" x2="275" y2="195"/>
+                                    <line x1="275" y1="155" x2="225" y2="195"/>
+                                    <circle cx="221" cy="152" r="5" fill="#FFFFFF"/>
+                                    <circle cx="279" cy="152" r="5" fill="#FFFFFF"/>
+                                    <path d="M 272,192 L 278,197 M 268,189 L 273,194" stroke="#1E293B" stroke-width="3"/>
+                                    <path d="M 228,192 L 222,197 M 232,189 L 227,194" stroke="#1E293B" stroke-width="3"/>
+                                </g>
+
+                                <g id="shield-stars" fill="#8B0000">
+                                    <polygon points="210,265 212,271 218,271 213,275 215,281 210,277 205,281 207,275 202,271 208,271"/>
+                                    <polygon points="230,270 232,276 238,276 233,280 235,286 230,282 225,286 227,280 222,276 228,276"/>
+                                    <polygon points="250,273 252,279 258,279 253,283 255,289 250,285 245,289 247,283 242,279 248,279"/>
+                                    <polygon points="270,270 272,276 278,276 273,280 275,286 270,282 265,286 267,280 262,276 268,276"/>
+                                    <polygon points="290,265 292,271 298,271 293,275 295,281 290,277 285,281 287,275 282,271 288,271"/>
+                                </g>
+                            </g>
+
+                            <!-- BOTTOM BANNER -->
+                            <g id="motto-scroll">
+                                <path d="M 90,360 L 130,350 L 130,390 L 90,410 Z" fill="#500000"/>
+                                <path d="M 410,360 L 370,350 L 370,390 L 410,410 Z" fill="#500000"/>
+                                <path d="M 110,370 Q 250,420 390,370 L 410,415 Q 250,465 90,415 Z" fill="#8B0000" stroke="#FFFFFF" stroke-width="2"/>
+                                <text x="250" y="420" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="15" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">EDUCATION IS THE KEY OF LIFE</text>
+                            </g>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="font-bold text-lg md:text-xl text-slate-900 dark:text-white tracking-tight leading-none flex items-center gap-2">
+                            St. Lawrence Academy
+                            <span class="text-xs px-2 py-0.5 rounded-full bg-brand-red/10 text-brand-red dark:bg-brand-red/30 dark:text-red-300 font-semibold hidden sm:inline-block">Juba</span>
+                        </h1>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Hai-Referendum Residential • Excellence & Honor</p>
+                    </div>
+                </div>
+
+                <!-- Central Search Bar -->
+                <div class="hidden md:flex items-center flex-1 max-w-md mx-6">
+                    <div class="relative w-full">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                        <input type="text" id="searchInput" onkeyup="handleSearch()" placeholder="Search news, gallery photos, videos, events..." 
+                            class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200/70 dark:hover:bg-slate-700/80 focus:bg-white dark:focus:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm rounded-full border border-slate-200 dark:border-slate-700 focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none transition">
+                    </div>
+                </div>
+
+                <!-- Navigation Links & Action Controls -->
+                <div class="flex items-center gap-2 sm:gap-4">
+                    <!-- Top Navigation Links (Desktop) -->
+                    <nav class="hidden lg:flex items-center gap-4 text-xs font-bold text-slate-700 dark:text-slate-300">
+                        <a href="#about-section" class="hover:text-brand-red transition">About Us</a>
+                        <a href="#" onclick="filterCategory('School News')" class="hover:text-brand-red transition">News</a>
+                        <a href="#" onclick="filterCategory('Photo Gallery')" class="hover:text-brand-red transition">Gallery</a>
+                        <a href="#" onclick="filterCategory('Academics')" class="hover:text-brand-red transition">Academics</a>
+                        
+                        <!-- Theme Dark/Light Toggle -->
+                        <button onclick="toggleTheme()" class="p-2 text-slate-500 dark:text-slate-400 hover:text-brand-red rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Light/Dark Theme">
+                            <i id="themeIconNav" class="fa-solid fa-moon text-base"></i>
+                        </button>
+                    </nav>
+
+                    <!-- Add Post Button (Only visible to logged in Admin) -->
+                    <button id="addPostBtn" onclick="openPostModal()" class="hidden flex items-center gap-2 px-5 py-2.5 bg-brand-red hover:bg-brand-redHover text-white font-medium text-sm rounded-full shadow-md shadow-brand-red/20 transition active:scale-95">
+                        <i class="fa-solid fa-plus text-xs"></i>
+                        <span class="font-bold">Add Post</span>
+                    </button>
+
+                    <!-- Top Right Hamburger Menu Icon -->
+                    <button onclick="toggleMobileMenu()" class="p-2.5 text-slate-700 dark:text-slate-200 hover:text-brand-red hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition" title="Open Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div class="pb-3 md:hidden">
+                <div class="relative w-full">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="mobileSearchInput" onkeyup="handleSearch(true)" placeholder="Search school updates..." 
+                        class="w-full pl-10 pr-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-100 text-sm rounded-full border border-slate-200 dark:border-slate-700 focus:border-brand-red outline-none">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Navigation Menu Drawer -->
+    <div id="mobileMenuDrawer" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm transition-opacity duration-300 opacity-0 pointer-events-none">
+        <div id="drawerContent" class="fixed right-0 top-0 h-full w-72 bg-white dark:bg-slate-900 shadow-2xl p-6 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between overflow-y-auto">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
+                    <h3 class="font-bold text-slate-900 dark:text-white text-base flex items-center gap-2">
+                        <i class="fa-solid fa-bars-staggered text-brand-red"></i> Menu
+                    </h3>
+                    <button onclick="toggleMobileMenu()" class="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <div class="space-y-1 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <a href="#about-section" onclick="toggleMobileMenu()" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-circle-info w-5 text-brand-red"></i> About Us
+                    </a>
+                    <a href="#" onclick="filterCategory('School News'); toggleMobileMenu();" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-bullhorn w-5 text-brand-red"></i> School News
+                    </a>
+                    <a href="#" onclick="filterCategory('Photo Gallery'); toggleMobileMenu();" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-images w-5 text-brand-red"></i> Photo Gallery
+                    </a>
+                    <a href="#" onclick="filterCategory('Video Clips'); toggleMobileMenu();" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-circle-play w-5 text-brand-red"></i> Video Clips
+                    </a>
+                    <a href="#" onclick="filterCategory('Academics'); toggleMobileMenu();" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-book-open w-5 text-brand-red"></i> Academics
+                    </a>
+                    <a href="#" onclick="filterCategory('Sports & Clubs'); toggleMobileMenu();" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-brand-redLight dark:hover:bg-slate-800 hover:text-brand-red transition">
+                        <i class="fa-solid fa-futbol w-5 text-brand-red"></i> Sports & Clubs
+                    </a>
+
+                    <!-- Theme Selector Button -->
+                    <button onclick="toggleTheme()" class="w-full flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition text-left">
+                        <i id="themeIconMenu" class="fa-solid fa-moon w-5 text-brand-red"></i>
+                        <span id="themeTextMenu">Switch Mode</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Drawer Footer -->
+            <div class="border-t border-slate-100 dark:border-slate-800 pt-4 mt-6">
+                <button onclick="toggleMobileMenu(); openAdminTrigger();" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-brand-redLight text-slate-800 dark:text-slate-200 hover:text-brand-red rounded-xl text-xs font-bold transition">
+                    <i class="fa-solid fa-user-gear text-brand-red"></i> <span id="drawerAdminLabel">Admin Portal</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+        <!-- Hero Banner with Crest Styling -->
+        <div class="relative overflow-hidden rounded-3xl hero-gradient text-white p-6 sm:p-10 shadow-xl border border-brand-red/30">
+            <div class="absolute -right-10 -bottom-10 opacity-10 pointer-events-none w-80 h-80">
+                <i class="fa-solid fa-graduation-cap text-[280px] text-white"></i>
+            </div>
+
+            <div class="relative z-10 max-w-2xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md text-amber-300 text-xs font-semibold mb-4 border border-white/20">
+                    <i class="fa-solid fa-shield-halved"></i> Official School Community Portal
+                </div>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif tracking-tight leading-tight mb-3">
+                    Welcome to <span class="text-amber-300">St. Lawrence</span> Academy
+                </h2>
+                <p class="text-slate-200 text-sm sm:text-base mb-6 leading-relaxed">
+                    Connecting students, parents, and faculty. Discover campus activities, exam timetables, sports triumphs, and vibrant school photo galleries.
+                </p>
+                
+                <div class="flex flex-wrap items-center gap-3">
+                    <button onclick="filterCategory('All')" class="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-slate-900 font-bold text-sm rounded-xl shadow-lg transition flex items-center gap-2">
+                        <i class="fa-solid fa-newspaper"></i> Explore All Updates
+                    </button>
+                    <a href="#about-section" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-medium text-sm rounded-xl border border-white/20 transition">
+                        About School
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Category Pill Selector Filter -->
+        <div class="flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar scroll-smooth" id="categoryContainer">
+            <!-- Dynamic Category Pills Rendered by JS -->
+        </div>
+
+        <!-- Content Feed & Sidebar Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+
+            <!-- Main Dynamic Posts Feed -->
+            <div class="lg:col-span-3 space-y-6">
+                <!-- Active Category Header -->
+                <div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+                    <h3 id="currentCategoryTitle" class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-brand-red"></span>
+                        Latest School Feed
+                    </h3>
+                    <span id="postCountBadge" class="text-xs font-semibold px-2.5 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-full">0 items</span>
+                </div>
+
+                <!-- Feed Container -->
+                <div id="postsFeed" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Posts dynamically inserted here -->
+                </div>
+
+                <!-- Empty State -->
+                <div id="emptyState" class="hidden text-center py-16 bg-white dark:bg-slate-800/80 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 p-8">
+                    <div class="w-16 h-16 bg-brand-redLight dark:bg-brand-red/20 text-brand-red rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fa-regular fa-folder-open text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 dark:text-slate-100 mb-1">No Posts Found</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 max-w-md mx-auto mb-6">There are no published updates under this section yet.</p>
+                </div>
+            </div>
+
+            <!-- Sidebar Info & Quick Links -->
+            <div class="space-y-6" id="about-section">
+                
+                <!-- School Profile Card -->
+                <div class="glass-card bg-white/90 dark:bg-slate-800/90 rounded-2xl p-5 border border-brand-red/10 dark:border-slate-700 shadow-sm">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-10 h-10 rounded-lg bg-brand-red/10 text-brand-red flex items-center justify-center font-bold">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">About St. Lawrence</h4>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Private Educational Institution</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+                        St. Lawrence Academy is a premier private school situated northward of Juba in the Hai-Referendum residential area, South Sudan.
+                    </p>
+                    <div class="space-y-2 text-xs border-t border-slate-100 dark:border-slate-700/60 pt-3">
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                            <i class="fa-solid fa-location-dot text-brand-red w-4"></i>
+                            <span>Hai-Referendum, Juba, South Sudan</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                            <i class="fa-solid fa-users text-brand-red w-4"></i>
+                            <span>36K+ Community & Student Members</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-slate-600 dark:text-slate-300">
+                            <i class="fa-solid fa-vest text-brand-red w-4"></i>
+                            <span>Official Colors: Crisp White & Crimson Red</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Announcements Widget -->
+                <div class="bg-gradient-to-br from-slate-900 to-brand-navy rounded-2xl p-5 text-white shadow-md border border-slate-800">
+                    <h4 class="font-bold text-sm text-amber-300 flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-bullhorn"></i> Student Noticeboard
+                    </h4>
+                    <ul class="space-y-3 text-xs">
+                        <li class="pb-2 border-b border-slate-700/60">
+                            <span class="text-amber-400 font-semibold block mb-0.5">Uniform Reminder</span>
+                            Students are required to dress in full red and white school uniform daily.
+                        </li>
+                        <li class="pb-2 border-b border-slate-700/60">
+                            <span class="text-amber-400 font-semibold block mb-0.5">Term Mid-Exams</span>
+                            Exams timetable released under Academics section.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 py-8 mt-12 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500 dark:text-slate-400">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 bg-brand-red text-white rounded-lg flex items-center justify-center font-bold text-sm">
+                    SL
+                </div>
+                <p>© 2026 St. Lawrence Academy. All rights reserved. Juba, South Sudan.</p>
+            </div>
+            
+            <!-- Bottom Navigation Menu & YouTube-Style Profile Icon -->
+            <div class="flex items-center gap-4 font-medium flex-wrap justify-center">
+                <a href="#" onclick="filterCategory('School News')" class="hover:text-brand-red transition">News</a>
+                <a href="#" onclick="filterCategory('Photo Gallery')" class="hover:text-brand-red transition">Gallery</a>
+                <a href="#" onclick="filterCategory('Academics')" class="hover:text-brand-red transition">Academics</a>
+                <span class="text-slate-300 dark:text-slate-700">|</span>
+                
+                <!-- Account Profile Button (YouTube/TikTok Studio Style Trigger) -->
+                <button id="adminProfileTriggerBtn" onclick="openAdminTrigger()" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-brand-redLight dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 hover:text-brand-red transition font-semibold">
+                    <div id="adminAvatar" class="w-6 h-6 rounded-full bg-brand-red text-white flex items-center justify-center text-[10px] font-bold">
+                        <i class="fa-solid fa-user-lock"></i>
+                    </div>
+                    <span id="footerAdminStatusLabel">Admin Portal</span>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ADD / EDIT POST MODAL -->
+    <div id="postModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-xl w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 max-h-[90vh] overflow-y-auto custom-scrollbar">
+            <div class="flex items-center justify-between pb-4 mb-4 border-b border-slate-100 dark:border-slate-800">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-redLight dark:bg-brand-red/20 text-brand-red flex items-center justify-center">
+                        <i class="fa-solid fa-pen-to-square"></i>
+                    </div>
+                    <div>
+                        <h3 id="postModalTitle" class="font-bold text-slate-900 dark:text-white text-lg">Create Announcement</h3>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">Post news, photo galleries, video clips or academic updates</p>
+                    </div>
+                </div>
+                <button onclick="closePostModal()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+
+            <form id="postForm" onsubmit="handlePostSubmit(event)" class="space-y-4">
+                <input type="hidden" id="editPostId" value="">
+                
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Title *</label>
+                    <input type="text" id="postTitle" required placeholder="e.g. Annual Sports Day Trophy Ceremony" 
+                        class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none">
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Category *</label>
+                        <select id="postCategory" required class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red outline-none">
+                            <option value="School News">School News</option>
+                            <option value="Photo Gallery">Photo Gallery</option>
+                            <option value="Video Clips">Video Clips</option>
+                            <option value="Academics">Academics</option>
+                            <option value="Sports & Clubs">Sports & Clubs</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Author Name</label>
+                        <input type="text" id="postAuthor" placeholder="e.g. St. Lawrence Administration" 
+                            class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red outline-none">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Content Details *</label>
+                    <textarea id="postContent" required rows="4" placeholder="Write full news details, events schedule or video description..." 
+                        class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red focus:ring-2 focus:ring-brand-red/20 outline-none"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-1">Media URL (Photo URL or YouTube Embed)</label>
+                    <input type="url" id="postMediaUrl" placeholder="https://images.unsplash.com/... or YouTube URL" 
+                        class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red outline-none">
+                </div>
+
+                <div class="pt-4 flex items-center justify-end gap-3 border-t border-slate-100 dark:border-slate-800">
+                    <button type="button" onclick="closePostModal()" class="px-4 py-2 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl text-sm font-semibold">
+                        Cancel
+                    </button>
+                    <button type="submit" class="px-6 py-2.5 bg-brand-red hover:bg-brand-redHover text-white rounded-xl text-sm font-semibold shadow-md shadow-brand-red/20">
+                        Publish Post
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN LOGIN MODAL -->
+    <div id="adminLoginModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 text-center">
+            <div class="w-12 h-12 bg-brand-redLight dark:bg-brand-red/20 text-brand-red rounded-full flex items-center justify-center mx-auto mb-3">
+                <i class="fa-solid fa-lock text-xl"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-lg">Admin Access Portal</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400 mb-6">Enter administrator password to access posting & studio analytics</p>
+
+            <form onsubmit="handleAdminLogin(event)" class="space-y-4 text-left">
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 uppercase mb-1">Password</label>
+                    <input type="password" id="adminPasswordInput" required placeholder="Enter admin password" 
+                        class="w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 focus:border-brand-red outline-none">
+                </div>
+                <div id="loginErrorMsg" class="text-xs text-red-600 font-semibold hidden">Incorrect administrator password. Please try again.</div>
+                
+                <div class="flex gap-2 pt-2">
+                    <button type="button" onclick="closeAdminLoginModal()" class="w-1/2 py-2.5 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-800">
+                        Cancel
+                    </button>
+                    <button type="submit" class="w-1/2 py-2.5 bg-brand-red hover:bg-brand-redHover text-white rounded-xl text-sm font-semibold shadow-md">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADMIN STUDIO DASHBOARD MODAL (YouTube Studio / TikTok Analytics Style) -->
+    <div id="adminStudioModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-900 rounded-2xl max-w-3xl w-full p-6 shadow-2xl border border-slate-100 dark:border-slate-800 max-h-[90vh] overflow-y-auto custom-scrollbar flex flex-col justify-between">
+            
+            <div>
+                <!-- Studio Header & Account Info -->
+                <div class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 mb-6">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-brand-red text-white flex items-center justify-center text-lg font-bold shadow-md">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-slate-900 dark:text-white text-lg flex items-center gap-2">
+                                Admin Studio
+                                <span class="text-xs px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 font-semibold rounded-full">Logged In</span>
+                            </h3>
+                            <p class="text-xs text-slate-500 dark:text-slate-400">Manage school content, track analytics & update portal credentials</p>
+                        </div>
+                    </div>
+                    <button onclick="closeAdminStudio()" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 p-2 rounded-lg">
+                        <i class="fa-solid fa-xmark text-lg"></i>
+                    </button>
+                </div>
+
+                <!-- Studio Navigation Tabs -->
+                <div class="flex border-b border-slate-200 dark:border-slate-800 mb-6 gap-6 text-sm font-bold">
+                    <button onclick="switchStudioTab('analytics')" id="tabBtnAnalytics" class="pb-2 text-brand-red border-b-2 border-brand-red flex items-center gap-2">
+                        <i class="fa-solid fa-chart-line"></i> Analytics & Views
+                    </button>
+                    <button onclick="switchStudioTab('manage')" id="tabBtnManage" class="pb-2 text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                        <i class="fa-solid fa-list-check"></i> Manage Posts
+                    </button>
+                    <button onclick="switchStudioTab('settings')" id="tabBtnSettings" class="pb-2 text-slate-500 dark:text-slate-400 flex items-center gap-2">
+                        <i class="fa-solid fa-key"></i> Password Settings
+                    </button>
+                </div>
+
+                <!-- TAB 1: ANALYTICS & VIEWS (TikTok/YouTube Studio Style) -->
+                <div id="studioTabAnalytics" class="space-y-6">
+                    <!-- Metric Cards -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Total Channel Views</p>
+                            <h4 id="statTotalViews" class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">0</h4>
+                            <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-arrow-trend-up"></i> +14% this week
+                            </span>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Published Posts</p>
+                            <h4 id="statTotalPosts" class="text-2xl font-extrabold text-slate-900 dark:text-white mt-1">0</h4>
+                            <span class="text-[11px] text-slate-500 font-medium mt-1">Active content</span>
+                        </div>
+                        <div class="bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700">
+                            <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">Total Reader Likes</p>
+                            <h4 id="statTotalLikes" class="text-2xl font-extrabold text-brand-red dark:text-red-400 mt-1">0</h4>
+                            <span class="text-[11px] text-emerald-600 font-semibold flex items-center gap-1 mt-1">
+                                <i class="fa-solid fa-heart"></i> Engagement
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Top Performing Post Preview -->
+                    <div>
+                        <h4 class="text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider mb-3">Top Viewed Update</h4>
+                        <div id="topViewedPostCard" class="bg-gradient-to-r from-brand-redLight to-white dark:from-slate-800 dark:to-slate-800/60 p-4 rounded-xl border border-brand-red/20 flex items-center justify-between">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: MANAGE POSTS -->
+                <div id="studioTabManage" class="hidden space-y-3">
+                    <div id="adminPostsList" class="space-y-2">
+                        <!-- Injected by JS -->
+                    </div>
+                </div>
+
+                <!-- TAB 3: PASSWORD SETTINGS -->
+                <div id="studioTabSettings" class="hidden space-y-4">
+                    <div class="bg-slate-50 dark:bg-slate-800 p-5 rounded-xl border border-slate-200 dark:border-slate-700 max-w-md">
+                        <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1">Change Admin Portal Password</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Update the password required to post updates and access the admin studio.</p>
+
+                        <form onsubmit="handleChangePassword(event)" class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">Current Password</label>
+                                <input type="password" id="currPasswordInput" required placeholder="Enter current password"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">New Password</label>
+                                <input type="password" id="newPasswordInput" required minlength="4" placeholder="Enter new password"
+                                    class="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 outline-none">
+                            </div>
+                            <div id="passwordErrorMsg" class="text-xs text-red-600 font-semibold hidden">Incorrect current password.</div>
+                            
+                            <button type="submit" class="w-full py-2.5 bg-brand-red hover:bg-brand-redHover text-white font-bold text-xs rounded-lg shadow transition">
+                                Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer Logout -->
+            <div class="pt-6 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center mt-6">
+                <span class="text-xs text-slate-400">St. Lawrence Studio Version 2.0</span>
+                <button onclick="handleAdminLogout()" class="px-4 py-2 bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300 hover:bg-red-200 text-xs font-bold rounded-xl transition">
+                    <i class="fa-solid fa-right-from-bracket mr-1"></i> Logout Admin
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Toast Notification Message -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+        <i id="toastIcon" class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toastMsg" class="text-sm font-medium">Notification message</span>
+    </div>
+
+    <!-- Application Logic Script -->
+    <script>
+        // Default Mock Data for St. Lawrence Academy
+        const initialPosts = [
+            {
+                id: '1',
+                title: 'St. Lawrence Academy Annual Cultural & Sports Day 2026',
+                category: 'Sports & Clubs',
+                author: 'Sports Dept.',
+                date: 'Oct 14, 2026',
+                content: 'Our annual athletics championship held at the main grounds was a resounding success! Students dressed in crisp white and crimson red jerseys cheered for their respective houses.',
+                mediaUrl: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=80',
+                likes: 42,
+                views: 312
+            },
+            {
+                id: '2',
+                title: 'Senior Examinations Schedule & Revision Class Guidelines',
+                category: 'Academics',
+                author: 'Academic Office',
+                date: 'Oct 10, 2026',
+                content: 'All secondary candidates are instructed to check the official hall timetable. Mandatory revision classes commence this coming Monday at 8:00 AM sharp.',
+                mediaUrl: '',
+                likes: 19,
+                views: 184
+            },
+            {
+                id: '3',
+                title: 'Student Parliament Swearing-in Ceremony Highlight',
+                category: 'School News',
+                author: 'Student Council',
+                date: 'Oct 05, 2026',
+                content: 'Congratulations to our newly elected Head Boy and Head Girl! The council pledges to work closely with the administration to enhance student welfare.',
+                mediaUrl: 'https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=800&q=80',
+                likes: 35,
+                views: 245
+            },
+            {
+                id: '4',
+                title: 'New Science & Computer Lab Facility Opening',
+                category: 'Photo Gallery',
+                author: 'School Board',
+                date: 'Sep 28, 2026',
+                content: 'Take a tour of our newly refurbished computer science laboratory in Hai-Referendum residential campus equipped with modern computers and high-speed internet.',
+                mediaUrl: 'https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=800&q=80',
+                likes: 58,
+                views: 420
+            }
+        ];
+
+        const categories = [
+            { name: 'All', icon: 'fa-border-all' },
+            { name: 'School News', icon: 'fa-bullhorn' },
+            { name: 'Photo Gallery', icon: 'fa-images' },
+            { name: 'Video Clips', icon: 'fa-circle-play' },
+            { name: 'Academics', icon: 'fa-book-open' },
+            { name: 'Sports & Clubs', icon: 'fa-futbol' }
+        ];
+
+        let currentCategory = 'All';
+        let posts = [];
+        let isAdmin = false;
+        let adminPassword = 'admin123'; // Default password
+
+        // Initialize Application
+        window.onload = function() {
+            // Load saved password or set default
+            const storedPwd = localStorage.getItem('sla_admin_password');
+            if (storedPwd) {
+                adminPassword = storedPwd;
+            } else {
+                localStorage.setItem('sla_admin_password', adminPassword);
+            }
+
+            // Load saved posts
+            const stored = localStorage.getItem('sla_posts');
+            if (stored) {
+                try { posts = JSON.parse(stored); } catch(e) { posts = initialPosts; }
+            } else {
+                posts = initialPosts;
+                localStorage.setItem('sla_posts', JSON.stringify(posts));
+            }
+
+            // Automatic System Theme Match (Dark / Light)
+            initTheme();
+
+            renderCategories();
+            renderPosts();
+        };
+
+        // Theme Switcher (System Auto-detection + Toggle)
+        function initTheme() {
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const storedTheme = localStorage.getItem('sla_theme');
+
+            if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+                updateThemeIcons(true);
+            } else {
+                document.documentElement.classList.remove('dark');
+                updateThemeIcons(false);
+            }
+        }
+
+        function toggleTheme() {
+            const isDark = document.documentElement.classList.toggle('dark');
+            localStorage.setItem('sla_theme', isDark ? 'dark' : 'light');
+            updateThemeIcons(isDark);
+            showToast(`Switched to ${isDark ? 'Dark' : 'Light'} Mode`);
+        }
+
+        function updateThemeIcons(isDark) {
+            const iconNav = document.getElementById('themeIconNav');
+            const iconMenu = document.getElementById('themeIconMenu');
+            const textMenu = document.getElementById('themeTextMenu');
+
+            if (isDark) {
+                if (iconNav) iconNav.className = 'fa-solid fa-sun text-amber-400 text-base';
+                if (iconMenu) iconMenu.className = 'fa-solid fa-sun w-5 text-amber-400';
+                if (textMenu) textMenu.textContent = 'Light Mode';
+            } else {
+                if (iconNav) iconNav.className = 'fa-solid fa-moon text-base';
+                if (iconMenu) iconMenu.className = 'fa-solid fa-moon w-5 text-brand-red';
+                if (textMenu) textMenu.textContent = 'Dark Mode';
+            }
+        }
+
+        // Category Pills Handler
+        function renderCategories() {
+            const container = document.getElementById('categoryContainer');
+            container.innerHTML = categories.map(cat => {
+                const active = currentCategory === cat.name;
+                return `
+                    <button onclick="filterCategory('${cat.name}')" 
+                        class="flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap transition ${
+                            active 
+                            ? 'bg-brand-red text-white shadow-md shadow-brand-red/20' 
+                            : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
+                        }">
+                        <i class="fa-solid ${cat.icon}"></i>
+                        ${cat.name}
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function filterCategory(catName) {
+            currentCategory = catName;
+            renderCategories();
+            document.getElementById('currentCategoryTitle').innerHTML = `
+                <span class="w-3 h-3 rounded-full bg-brand-red"></span>
+                ${catName === 'All' ? 'Latest School Feed' : catName}
+            `;
+            renderPosts();
+        }
+
+        // Render Feed
+        function renderPosts(filterSearch = '') {
+            const feed = document.getElementById('postsFeed');
+            const emptyState = document.getElementById('emptyState');
+
+            let filtered = posts;
+
+            if (currentCategory !== 'All') {
+                filtered = filtered.filter(p => p.category === currentCategory);
+            }
+
+            if (filterSearch.trim() !== '') {
+                const q = filterSearch.toLowerCase();
+                filtered = filtered.filter(p => 
+                    p.title.toLowerCase().includes(q) || 
+                    p.content.toLowerCase().includes(q) ||
+                    p.category.toLowerCase().includes(q)
+                );
+            }
+
+            document.getElementById('postCountBadge').textContent = `${filtered.length} items`;
+
+            if (filtered.length === 0) {
+                feed.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            feed.innerHTML = filtered.map(post => {
+                let mediaHtml = '';
+                if (post.mediaUrl) {
+                    if (post.mediaUrl.includes('youtube.com') || post.mediaUrl.includes('youtu.be')) {
+                        const ytId = extractYouTubeId(post.mediaUrl);
+                        if (ytId) {
+                            mediaHtml = `
+                                <div class="relative w-full aspect-video rounded-t-2xl overflow-hidden bg-slate-900">
+                                    <iframe class="w-full h-full" src="https://www.youtube.com/embed/${ytId}" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        mediaHtml = `
+                            <div class="relative w-full h-48 sm:h-52 overflow-hidden bg-slate-100 dark:bg-slate-800 rounded-t-2xl">
+                                <img src="${post.mediaUrl}" alt="${post.title}" class="w-full h-full object-cover transition duration-500 hover:scale-105" onerror="this.src='https://placehold.co/600x400/8B0000/FFFFFF?text=St.+Lawrence+Academy'">
+                            </div>
+                        `;
+                    }
+                }
+
+                return `
+                    <div onclick="incrementViews('${post.id}')" class="glass-card glass-card-hover rounded-2xl overflow-hidden flex flex-col justify-between relative group border border-brand-red/10 dark:border-slate-800 bg-white dark:bg-slate-800/90">
+                        <div>
+                            ${mediaHtml}
+                            <div class="p-5">
+                                <div class="flex items-center justify-between gap-2 mb-2">
+                                    <span class="text-[11px] font-bold px-2.5 py-1 rounded-md bg-brand-redLight dark:bg-brand-red/20 text-brand-red dark:text-red-300 border border-brand-redBorder/50 dark:border-brand-red/30">
+                                        ${post.category}
+                                    </span>
+                                    <span class="text-xs text-slate-400 font-medium">
+                                        <i class="fa-regular fa-clock text-[10px] mr-1"></i>${post.date}
+                                    </span>
+                                </div>
+                                <h4 class="font-bold text-slate-900 dark:text-white text-base leading-snug mb-2 group-hover:text-brand-red transition">
+                                    ${post.title}
+                                </h4>
+                                <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3 mb-4">
+                                    ${post.content}
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="px-5 pb-4 pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
+                            <span class="font-medium flex items-center gap-1.5 text-slate-600 dark:text-slate-300">
+                                <i class="fa-solid fa-user-pen text-brand-red text-[11px]"></i> ${post.author || 'St. Lawrence Admin'}
+                            </span>
+                            
+                            <div class="flex items-center gap-3">
+                                <!-- TikTok/YouTube Views counter on card -->
+                                <span class="flex items-center gap-1 text-[11px] text-slate-400" title="Views">
+                                    <i class="fa-regular fa-eye text-slate-400"></i> ${post.views || 0}
+                                </span>
+
+                                <button onclick="event.stopPropagation(); likePost('${post.id}');" class="flex items-center gap-1.5 px-2 py-1 rounded-full hover:bg-red-50 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-brand-red transition">
+                                    <i class="fa-regular fa-heart text-brand-red"></i>
+                                    <span id="like-count-${post.id}" class="font-bold">${post.likes || 0}</span>
+                                </button>
+
+                                ${isAdmin ? `
+                                    <button onclick="event.stopPropagation(); openEditPostModal('${post.id}');" class="p-1.5 text-slate-400 hover:text-brand-red transition" title="Edit Post">
+                                        <i class="fa-solid fa-pen"></i>
+                                    </button>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // View Counter Handler
+        function incrementViews(id) {
+            const post = posts.find(p => p.id === id);
+            if (post) {
+                post.views = (post.views || 0) + 1;
+                localStorage.setItem('sla_posts', JSON.stringify(posts));
+                renderPosts();
+            }
+        }
+
+        // Search Handler
+        function handleSearch(isMobile = false) {
+            const query = isMobile ? document.getElementById('mobileSearchInput').value : document.getElementById('searchInput').value;
+            renderPosts(query);
+        }
+
+        function resetFilters() {
+            currentCategory = 'All';
+            document.getElementById('searchInput').value = '';
+            document.getElementById('mobileSearchInput').value = '';
+            renderCategories();
+            renderPosts();
+        }
+
+        // Like Post Handler
+        function likePost(id) {
+            const post = posts.find(p => p.id === id);
+            if (post) {
+                post.likes = (post.likes || 0) + 1;
+                localStorage.setItem('sla_posts', JSON.stringify(posts));
+                document.getElementById(`like-count-${id}`).textContent = post.likes;
+                showToast('Liked this post!');
+            }
+        }
+
+        // Admin Trigger Routing
+        function openAdminTrigger() {
+            if (isAdmin) {
+                openAdminStudio();
+            } else {
+                openAdminLoginModal();
+            }
+        }
+
+        function openAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.remove('hidden');
+        }
+
+        function closeAdminLoginModal() {
+            document.getElementById('adminLoginModal').classList.add('hidden');
+            document.getElementById('loginErrorMsg').classList.add('hidden');
+        }
+
+        // Admin Login Submission
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const enteredPwd = document.getElementById('adminPasswordInput').value;
+            
+            if (enteredPwd === adminPassword) {
+                isAdmin = true;
+                closeAdminLoginModal();
+                
+                // Show Admin Profile state
+                document.getElementById('addPostBtn').classList.remove('hidden');
+                document.getElementById('footerAdminStatusLabel').textContent = 'Admin Studio';
+                document.getElementById('drawerAdminLabel').textContent = 'Admin Studio';
+                document.getElementById('adminAvatar').className = 'w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-[10px] font-bold';
+                
+                renderPosts();
+                showToast('Welcome back, Admin!');
+                openAdminStudio();
+            } else {
+                document.getElementById('loginErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        function handleAdminLogout() {
+            isAdmin = false;
+            document.getElementById('addPostBtn').classList.add('hidden');
+            document.getElementById('footerAdminStatusLabel').textContent = 'Admin Portal';
+            document.getElementById('drawerAdminLabel').textContent = 'Admin Portal';
+            document.getElementById('adminAvatar').className = 'w-6 h-6 rounded-full bg-brand-red text-white flex items-center justify-center text-[10px] font-bold';
+            
+            closeAdminStudio();
+            renderPosts();
+            showToast('Logged out of Admin Mode');
+        }
+
+        // Admin Studio Dashboard Logic
+        function openAdminStudio() {
+            populateStudioAnalytics();
+            populateStudioManageList();
+            document.getElementById('adminStudioModal').classList.remove('hidden');
+        }
+
+        function closeAdminStudio() {
+            document.getElementById('adminStudioModal').classList.add('hidden');
+        }
+
+        function switchStudioTab(tab) {
+            document.getElementById('studioTabAnalytics').classList.add('hidden');
+            document.getElementById('studioTabManage').classList.add('hidden');
+            document.getElementById('studioTabSettings').classList.add('hidden');
+
+            document.getElementById('tabBtnAnalytics').className = 'pb-2 text-slate-500 dark:text-slate-400 flex items-center gap-2';
+            document.getElementById('tabBtnManage').className = 'pb-2 text-slate-500 dark:text-slate-400 flex items-center gap-2';
+            document.getElementById('tabBtnSettings').className = 'pb-2 text-slate-500 dark:text-slate-400 flex items-center gap-2';
+
+            if (tab === 'analytics') {
+                document.getElementById('studioTabAnalytics').classList.remove('hidden');
+                document.getElementById('tabBtnAnalytics').className = 'pb-2 text-brand-red border-b-2 border-brand-red flex items-center gap-2 font-bold';
+                populateStudioAnalytics();
+            } else if (tab === 'manage') {
+                document.getElementById('studioTabManage').classList.remove('hidden');
+                document.getElementById('tabBtnManage').className = 'pb-2 text-brand-red border-b-2 border-brand-red flex items-center gap-2 font-bold';
+                populateStudioManageList();
+            } else if (tab === 'settings') {
+                document.getElementById('studioTabSettings').classList.remove('hidden');
+                document.getElementById('tabBtnSettings').className = 'pb-2 text-brand-red border-b-2 border-brand-red flex items-center gap-2 font-bold';
+            }
+        }
+
+        function populateStudioAnalytics() {
+            const totalViews = posts.reduce((acc, p) => acc + (p.views || 0), 0);
+            const totalLikes = posts.reduce((acc, p) => acc + (p.likes || 0), 0);
+
+            document.getElementById('statTotalViews').textContent = totalViews;
+            document.getElementById('statTotalPosts').textContent = posts.length;
+            document.getElementById('statTotalLikes').textContent = totalLikes;
+
+            // Find top viewed post
+            if (posts.length > 0) {
+                const topPost = [...posts].sort((a, b) => (b.views || 0) - (a.views || 0))[0];
+                document.getElementById('topViewedPostCard').innerHTML = `
+                    <div>
+                        <span class="text-[10px] font-bold uppercase text-brand-red">${topPost.category}</span>
+                        <h5 class="font-bold text-slate-900 dark:text-white text-sm line-clamp-1">${topPost.title}</h5>
+                        <p class="text-xs text-slate-500 dark:text-slate-400">${topPost.date}</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-lg font-extrabold text-brand-red dark:text-red-400 block"><i class="fa-solid fa-eye text-xs"></i> ${topPost.views || 0}</span>
+                        <span class="text-xs text-slate-500">views</span>
+                    </div>
+                `;
+            }
+        }
+
+        function populateStudioManageList() {
+            const list = document.getElementById('adminPostsList');
+            list.innerHTML = posts.map(p => `
+                <div class="p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 flex items-center justify-between gap-3">
+                    <div class="flex-1 min-w-0">
+                        <h5 class="font-bold text-slate-900 dark:text-white text-xs truncate">${p.title}</h5>
+                        <p class="text-[11px] text-slate-500">${p.category} • ${p.date} • <i class="fa-regular fa-eye"></i> ${p.views || 0} views</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="closeAdminStudio(); openEditPostModal('${p.id}');" class="px-2.5 py-1 bg-slate-200 dark:bg-slate-700 hover:bg-brand-red hover:text-white text-xs font-bold rounded-lg transition">
+                            Edit
+                        </button>
+                        <button onclick="deletePost('${p.id}'); populateStudioManageList();" class="p-1 text-slate-400 hover:text-red-600 transition">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Change Password Handler
+        function handleChangePassword(e) {
+            e.preventDefault();
+            const curr = document.getElementById('currPasswordInput').value;
+            const newP = document.getElementById('newPasswordInput').value;
+
+            if (curr === adminPassword) {
+                adminPassword = newP;
+                localStorage.setItem('sla_admin_password', newP);
+                document.getElementById('passwordErrorMsg').classList.add('hidden');
+                document.getElementById('currPasswordInput').value = '';
+                document.getElementById('newPasswordInput').value = '';
+                showToast('Admin password changed successfully!');
+            } else {
+                document.getElementById('passwordErrorMsg').classList.remove('hidden');
+            }
+        }
+
+        // Post Edit & Creation Modals
+        function openPostModal() {
+            document.getElementById('postForm').reset();
+            document.getElementById('editPostId').value = '';
+            document.getElementById('postModalTitle').textContent = 'Create Announcement';
+            document.getElementById('postModal').classList.remove('hidden');
+        }
+
+        function openEditPostModal(id) {
+            const post = posts.find(p => p.id === id);
+            if (!post) return;
+
+            document.getElementById('editPostId').value = post.id;
+            document.getElementById('postTitle').value = post.title;
+            document.getElementById('postCategory').value = post.category;
+            document.getElementById('postAuthor').value = post.author || '';
+            document.getElementById('postContent').value = post.content;
+            document.getElementById('postMediaUrl').value = post.mediaUrl || '';
+
+            document.getElementById('postModalTitle').textContent = 'Edit Announcement';
+            document.getElementById('postModal').classList.remove('hidden');
+        }
+
+        function closePostModal() {
+            document.getElementById('postModal').classList.add('hidden');
+            document.getElementById('postForm').reset();
+        }
+
+        function handlePostSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('editPostId').value;
+            const title = document.getElementById('postTitle').value;
+            const category = document.getElementById('postCategory').value;
+            const author = document.getElementById('postAuthor').value || 'St. Lawrence Admin';
+            const content = document.getElementById('postContent').value;
+            const mediaUrl = document.getElementById('postMediaUrl').value;
+
+            if (editId) {
+                // Update existing post
+                const post = posts.find(p => p.id === editId);
+                if (post) {
+                    post.title = title;
+                    post.category = category;
+                    post.author = author;
+                    post.content = content;
+                    post.mediaUrl = mediaUrl;
+                }
+                showToast('Post updated successfully!');
+            } else {
+                // Create new post
+                const newPost = {
+                    id: Date.now().toString(),
+                    title,
+                    category,
+                    author,
+                    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+                    content,
+                    mediaUrl,
+                    likes: 0,
+                    views: 0
+                };
+                posts.unshift(newPost);
+                showToast('New update published successfully!');
+            }
+
+            localStorage.setItem('sla_posts', JSON.stringify(posts));
+            closePostModal();
+            renderPosts();
+        }
+
+        function deletePost(id) {
+            if (!isAdmin) return;
+            posts = posts.filter(p => p.id !== id);
+            localStorage.setItem('sla_posts', JSON.stringify(posts));
+            renderPosts();
+            showToast('Post removed successfully.');
+        }
+
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobileMenuDrawer');
+            const content = document.getElementById('drawerContent');
+            
+            if (drawer.classList.contains('opacity-0')) {
+                drawer.classList.remove('opacity-0', 'pointer-events-none');
+                content.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('opacity-0', 'pointer-events-none');
+                content.classList.add('translate-x-full');
+            }
+        }
+
+        function extractYouTubeId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
